@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WinFormsApp1.Models
+namespace CRUDWinFormsMVP.Models
 {
     public interface IPetRepository
     {
@@ -12,6 +12,6 @@ namespace WinFormsApp1.Models
         void Edit(PetModel petModel);
         void Delete(int id);
         IEnumerable<PetModel> GetAll();
-        IEnumerable<PetModel> GetByValue(int id);
+        IEnumerable<PetModel> GetByValue(string value);
     }
 }

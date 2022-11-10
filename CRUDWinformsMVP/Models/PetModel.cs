@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 
-namespace WinFormsApp1.Models
+namespace CRUDWinFormsMVP.Models
 {
     public class PetModel
     {
