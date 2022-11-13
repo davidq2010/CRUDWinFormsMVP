@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CRUDWinFormsMVP.Models;
 using CRUDWinFormsMVP.Models;
 using CRUDWinFormsMVP.Views;
 
@@ -75,6 +75,7 @@ namespace CRUDWinFormsMVP.Presenters
             {
                 pets = repository.GetAll();
             }
+            petsBindingSource.DataSource = pets;
         }
     }
 }

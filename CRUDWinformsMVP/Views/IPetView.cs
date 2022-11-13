@@ -18,6 +18,9 @@ namespace CRUDWinFormsMVP.Views
         bool IsSuccessful { get; set; }
         string Message { get; set; }
 
+        // I think these are the key for the View:
+        // Guarantees that the View does not implement any business logic as
+        // the Presenter will hook up to these events.
         event EventHandler SearchEvent;
         event EventHandler AddEvent;
         event EventHandler DeleteEvent;

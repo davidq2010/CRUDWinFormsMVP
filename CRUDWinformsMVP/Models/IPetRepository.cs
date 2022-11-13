@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace CRUDWinFormsMVP.Models
 {
+    // This is a CRUD-specific thing. Abstract the CRUD operations into their own interface.
+    // Interface shouldn't change even as different data storage may be used.
     public interface IPetRepository
     {
         void Add(PetModel petModel);
