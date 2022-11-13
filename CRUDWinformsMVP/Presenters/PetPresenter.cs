@@ -75,6 +75,11 @@ namespace CRUDWinFormsMVP.Presenters
             {
                 pets = repository.GetAll();
             }
+            // Need to update the binding source's data source to trigger the
+            // DataGridView to update.
+            // I'm guessing the DataSource doesn't store the reference to the 'pets' variable
+            // and somehow points directly to the value at &pets (i.e., pets stores a memory address
+            // to some data. DataSource doesn't store &pets, but rather points to the data at &pets.)
             petsBindingSource.DataSource = pets;
         }
     }
