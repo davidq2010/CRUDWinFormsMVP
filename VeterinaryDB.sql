@@ -7,7 +7,7 @@ create table Pet
 	Pet_Id int identity (100000,1) primary key,
 	Pet_Name nvarchar (50) not null,
 	Pet_Type nvarchar (50) not null,
-	Pet_Colour nvarchar (50) not null,	
+	Pet_Color nvarchar (50) not null,	
 )
 go
 insert into Pet values('Buttons', 'Dog', 'White')

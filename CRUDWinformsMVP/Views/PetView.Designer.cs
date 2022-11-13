@@ -288,6 +288,8 @@
             // 
             this.txtPetId.Location = new System.Drawing.Point(63, 54);
             this.txtPetId.Name = "txtPetId";
+            this.txtPetId.Text = "0";
+            this.txtPetId.ReadOnly = true;
             this.txtPetId.Size = new System.Drawing.Size(154, 55);
             this.txtPetId.TabIndex = 6;
             // 

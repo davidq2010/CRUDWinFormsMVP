@@ -40,31 +40,6 @@ namespace CRUDWinFormsMVP.Presenters
             petsBindingSource.DataSource = pets;
         }
 
-        private void CancelAction(object? sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void SavePet(object? sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void DeletePet(object? sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void LoadPetToEdit(object? sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void AddPet(object? sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         private void SearchPet(object? sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(view.SearchValue))
@@ -82,5 +57,81 @@ namespace CRUDWinFormsMVP.Presenters
             // to some data. DataSource doesn't store &pets, but rather points to the data at &pets.)
             petsBindingSource.DataSource = pets;
         }
+
+        private void AddPet(object sender, EventArgs e)
+        {
+            view.IsEdited = false;
+        }
+        private void LoadPetToEdit(object sender, EventArgs e)
+        {
+            var pet = (PetModel)petsBindingSource.Current;
+            view.PetID = pet.Id.ToString();
+            view.PetName = pet.Name;
+            view.PetType = pet.Type;
+            view.PetColor = pet.Color;
+            view.IsEdited = true;
+        }
+        private void SavePet(object sender, EventArgs e)
+        {
+            var model = new PetModel
+            {
+                Id = Convert.ToInt32(view.PetID),
+                Name = view.PetName,
+                Type = view.PetType,
+                Color = view.PetColor
+            };
+            try
+            {
+                new Common.ModelDataValidation().Validate(model);
+                if (view.IsEdited)
+                {
+                    repository.Edit(model);
+                    view.Message = "Pet edited successfuly";
+                }
+                else //Add new model
+                {
+                    repository.Add(model);
+                    view.Message = "Pet added sucessfully";
+                }
+                view.IsSuccessful = true;
+                LoadAllPets();
+                CleanviewFields();
+            }
+            catch (Exception ex)
+            {
+                view.IsSuccessful = false;
+                view.Message = ex.Message;
+            }
+        }
+
+        private void CleanviewFields()
+        {
+            view.PetID = "0";
+            view.PetName = "";
+            view.PetType = "";
+            view.PetColor = "";
+        }
+
+        private void CancelAction(object sender, EventArgs e)
+        {
+            CleanviewFields();
+        }
+        private void DeletePet(object sender, EventArgs e)
+        {
+            try
+            {
+                var pet = (PetModel)petsBindingSource.Current;
+                repository.Delete(pet.Id);
+                view.IsSuccessful = true;
+                view.Message = "Pet deleted successfully";
+                LoadAllPets();
+            }
+            catch
+            {
+                view.IsSuccessful = false;
+                view.Message = "An error ocurred, could not delete pet";
+            }
+        }
+
     }
 }
