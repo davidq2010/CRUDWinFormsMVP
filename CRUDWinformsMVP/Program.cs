@@ -16,11 +16,10 @@ namespace CRUDWinFormsMVP
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            var petView = new PetView();
+            var mainView = new MainView();
             string connectionString = ConfigurationManager.ConnectionStrings["VeterinaryDatabase"].ConnectionString;
-            var petRepository = new PetRepository(connectionString);
-            new PetPresenter(petView, petRepository);
-            Application.Run(petView);
+            new MainPresenter(mainView, connectionString);
+            Application.Run(mainView);
         }
     }
 }

@@ -50,6 +50,7 @@
             this.txtPetName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtPetId = new System.Windows.Forms.TextBox();
+            this.btnClose = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPagePetList.SuspendLayout();
@@ -71,6 +72,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -120,7 +122,7 @@
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersWidth = 92;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(1164, 580);
+            this.dataGridView.Size = new System.Drawing.Size(953, 580);
             this.dataGridView.TabIndex = 7;
             // 
             // label2
@@ -136,7 +138,7 @@
             // btnDelete
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelete.Location = new System.Drawing.Point(1243, 180);
+            this.btnDelete.Location = new System.Drawing.Point(1032, 180);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(144, 55);
             this.btnDelete.TabIndex = 4;
@@ -146,7 +148,7 @@
             // btnEdit
             // 
             this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEdit.Location = new System.Drawing.Point(1243, 116);
+            this.btnEdit.Location = new System.Drawing.Point(1032, 116);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(144, 58);
             this.btnEdit.TabIndex = 3;
@@ -156,7 +158,7 @@
             // btnAddNew
             // 
             this.btnAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddNew.Location = new System.Drawing.Point(1243, 53);
+            this.btnAddNew.Location = new System.Drawing.Point(1032, 53);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(144, 57);
             this.btnAddNew.TabIndex = 2;
@@ -166,7 +168,7 @@
             // btnSearch
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSearch.Location = new System.Drawing.Point(1037, 53);
+            this.btnSearch.Location = new System.Drawing.Point(826, 53);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(151, 48);
             this.btnSearch.TabIndex = 1;
@@ -179,7 +181,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.Location = new System.Drawing.Point(24, 51);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(978, 48);
+            this.txtSearch.Size = new System.Drawing.Size(767, 48);
             this.txtSearch.TabIndex = 0;
             // 
             // tabPagePetDetail
@@ -195,10 +197,10 @@
             this.tabPagePetDetail.Controls.Add(this.label3);
             this.tabPagePetDetail.Controls.Add(this.txtPetId);
             this.tabPagePetDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tabPagePetDetail.Location = new System.Drawing.Point(10, 58);
+            this.tabPagePetDetail.Location = new System.Drawing.Point(10, 55);
             this.tabPagePetDetail.Name = "tabPagePetDetail";
             this.tabPagePetDetail.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePetDetail.Size = new System.Drawing.Size(1393, 704);
+            this.tabPagePetDetail.Size = new System.Drawing.Size(1604, 707);
             this.tabPagePetDetail.TabIndex = 1;
             this.tabPagePetDetail.Text = "Pet detail";
             this.tabPagePetDetail.UseVisualStyleBackColor = true;
@@ -227,7 +229,7 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.Location = new System.Drawing.Point(59, 203);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(189, 40);
+            this.label6.Size = new System.Drawing.Size(177, 40);
             this.label6.TabIndex = 13;
             this.label6.Text = "Pet Color:";
             // 
@@ -289,6 +291,16 @@
             this.txtPetId.Size = new System.Drawing.Size(154, 55);
             this.txtPetId.TabIndex = 6;
             // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Location = new System.Drawing.Point(1346, 3);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(57, 52);
+            this.btnClose.TabIndex = 8;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = true;
+            // 
             // PetView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(21F, 40F);
@@ -336,5 +348,6 @@
         private System.Windows.Forms.TextBox txtPetName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtPetId;
+        private Button btnClose;
     }
 }

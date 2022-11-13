@@ -2,12 +2,38 @@ namespace CRUDWinFormsMVP.Views
 {
     public partial class PetView : Form, IPetView
     {
-        public PetView()
+        //Singleton pattern (Open a single form instance)
+        private static PetView instance;
+        public static PetView GetInstance(Form parentContainer)
+        {
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new PetView
+                {
+                    MdiParent = parentContainer,
+                    FormBorderStyle = FormBorderStyle.None,
+                    Dock = DockStyle.Fill
+                };
+            }
+            else
+            {
+                if (instance.WindowState == FormWindowState.Minimized)
+                {
+                    instance.WindowState = FormWindowState.Normal;
+                }
+                instance.BringToFront();
+            }
+            return instance;
+        }
+
+        private PetView()
         {
             InitializeComponent();
             AssociateAndRaiseViewEvents();
             // Temporarily
             tabControl1.TabPages.Remove(tabPagePetDetail);
+
+            btnClose.Click += delegate { Close(); } ;
         }
 
         private void AssociateAndRaiseViewEvents()
@@ -43,5 +69,6 @@ namespace CRUDWinFormsMVP.Views
         {
             dataGridView.DataSource = bindingSource;
         }
+
     }
 }
